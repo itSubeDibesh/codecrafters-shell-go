@@ -13,7 +13,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		// Uncomment this block to pass the first stage
-		// fmt.Fprint(os.Stdout, "$ ")
+		fmt.Fprint(os.Stdout, "$ ")
 		_, _ = reader.ReadString('\n')
 	}
 }
