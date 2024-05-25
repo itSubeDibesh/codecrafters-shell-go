@@ -16,11 +16,18 @@ func main() {
 		// Uncomment this block to pass the first stage
 		fmt.Fprint(os.Stdout, "$ ")
 		cmd, _ := reader.ReadString('\n')
-		switch strings.TrimSpace(cmd) {
+		cmd = strings.TrimSpace(cmd)
+		input := cmd
+		if strings.HasPrefix(cmd, "echo "){
+			cmd = "echo"
+		}
+		switch cmd {
 			case "exit 0":
 				os.Exit(0)
+			case "echo":
+				fmt.Printf("%s\n", strings.TrimPrefix(input, "echo "))
 			default:
-				fmt.Printf("%s: command not found\n", strings.TrimSpace(cmd))
+				fmt.Printf("%s: command not found\n", cmd)
 		}
 	}
 }
