@@ -16,6 +16,11 @@ func main() {
 		// Uncomment this block to pass the first stage
 		fmt.Fprint(os.Stdout, "$ ")
 		cmd, _ := reader.ReadString('\n')
-		fmt.Printf("%s: command not found\n", strings.TrimSpace(cmd))
+		switch strings.TrimSpace(cmd) {
+			case "exit 0":
+				os.Exit(0)
+			default:
+				fmt.Printf("%s: command not found\n", strings.TrimSpace(cmd))
+		}
 	}
 }
