@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -14,6 +15,8 @@ func main() {
 	for {
 		// Uncomment this block to pass the first stage
 		fmt.Fprint(os.Stdout, "$ ")
-		_, _ = reader.ReadString('\n')
+		cmd, _ := reader.ReadString('\n')
+		fmt.Printf("%s: command not found\n", strings.TrimSpace(cmd))
+		os.Exit(1)
 	}
 }
