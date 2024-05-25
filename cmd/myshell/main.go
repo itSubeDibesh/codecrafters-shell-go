@@ -17,6 +17,5 @@ func main() {
 		fmt.Fprint(os.Stdout, "$ ")
 		cmd, _ := reader.ReadString('\n')
 		fmt.Printf("%s: command not found\n", strings.TrimSpace(cmd))
-		os.Exit(1)
 	}
 }
